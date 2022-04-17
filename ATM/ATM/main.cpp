@@ -3,6 +3,7 @@
 #include <string>
 #include <conio.h>
 #include "Interface.h"
+#include "Account.h"
 using namespace std;
 
 Interface c;
@@ -30,8 +31,17 @@ void titulMenu(){
 	} while (key != 27);
 }
 
+void menu(){
+	Money m("$", 1500);
+	Account a("fhd", 3495834, 2241, m);
+	a.addMoney(1500);
+	//cout << m.getSum();
+	system("pause");
+}
+
 void main(){
 	setlocale(LC_ALL, "Russian");
 	system("color F0");
 	titulMenu();
+	menu();
 }
