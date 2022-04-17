@@ -13,5 +13,5 @@ public:
 	string getPath();
 	string getLanguageName();
 	void changeLang();
-	void setLanguageName();
+	void setLanguageName(string arg);
 };

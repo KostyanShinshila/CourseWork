@@ -26,14 +26,13 @@ void Interface::zastavka(){
 	cout << "" << endl;
 	cout << "" << endl;
 	cout << "" << endl;
-	cout << "" << endl;
 	cout << getString("zastavka_rucovoditel");
 	alignCout(getString("zastavka_vipolnil"), "longcenter");
 	cout << getString("zastavka_prepod");
 	alignCout(getString("zastavka_student"), "longcenter");
 	cout << getString("zastavka_morozova");
 	alignCout(getString("zastavka_rudnev"), "longcenter");
-	cout << getString("zastavka_assistent");
+	cout << getString("zastavka_assistent") << endl;
 	cout << getString("zastavka_artemenko");
 	cout << "" << endl;
 	cout << "" << endl;
@@ -46,18 +45,6 @@ void Interface::zastavka(){
 	alignCout(getString("zastavka_lang"), "longcenter");
 	cout << getString("zastavka_help");
 	alignCout(getString("zastavka_about_prog"), "longcenter");
-
-	int key;
-	do{
-		key = _getch();
-		switch (key){
-		case 'd':
-			system("pause");
-			break;
-		}
-		fflush(stdin);
-	} while (key != 27);
-
 }
 
 void Interface::alignCout(string &s, char *type){
