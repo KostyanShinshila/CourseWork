@@ -13,5 +13,4 @@ private:
 public:
 	Account(string FIO, long Ident, int Pin, Money M);
 	void addMoney(long Sum);
-	
 };

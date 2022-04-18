@@ -35,7 +35,7 @@ void menu(){
 	Money m("$", 1500);
 	Account a("fhd", 3495834, 2241, m);
 	a.addMoney(1500);
-	//cout << m.getSum();
+	cout << a.getSum() << endl;
 	system("pause");
 }
 

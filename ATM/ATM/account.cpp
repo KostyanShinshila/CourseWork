@@ -9,7 +9,6 @@ Account::Account(string FIO, long Ident, int Pin, Money M){
 
 void Account::addMoney(long Sum){
 	setSum(sum + Sum);
-	cout << sum;
 }
 
 	
