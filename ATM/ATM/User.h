@@ -5,8 +5,11 @@ using namespace std;
 
 class User: public Account{
 private:
-	bool isPin();
+	Account acc;
+	bool isPin;
 public:
 	void getName();
+	bool getIsPin();
+	User();
 };
 

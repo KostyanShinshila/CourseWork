@@ -11,48 +11,41 @@ using namespace std;
 Interface::Interface(){}
 
 void Interface::zastavka(Language&l){
-	alignCout(l.getString(l, "zastavka_name"), "center");
-	alignCout(l.getString(l, "zastavka_fac"), "left");
-	alignCout(l.getString(l, "zastavka_kaf"), "left");
+	alignCout(l.getString("zastavka_name"), "center");
+	alignCout(l.getString("zastavka_fac"), "left");
+	alignCout(l.getString("zastavka_kaf"), "left");
 	cout << "" << endl;
 	cout << "" << endl;
 	cout << "" << endl;
 	cout << "" << endl;
 	cout << "" << endl;
-	alignCout(l.getString(l, "zastavka_curs"), "center");
-	alignCout(l.getString(l, "zastavka_disciplina"), "center");
-	alignCout(l.getString(l, "zastavka_tema"), "center");
+	alignCout(l.getString("zastavka_curs"), "center");
+	alignCout(l.getString("zastavka_disciplina"), "center");
+	alignCout(l.getString("zastavka_tema"), "center");
 	cout << "" << endl;
 	cout << "" << endl;
 	cout << "" << endl;
 	cout << "" << endl;
-	cout << l.getString(l, "zastavka_rucovoditel");
-	alignCout(l.getString(l, "zastavka_vipolnil"), "longcenter");
-	cout << l.getString(l, "zastavka_prepod");
-	alignCout(l.getString(l, "zastavka_student"), "longcenter");
-	cout << l.getString(l, "zastavka_morozova");
-	alignCout(l.getString(l, "zastavka_rudnev"), "longcenter");
-	cout << l.getString(l, "zastavka_assistent") << endl;
-	cout << l.getString(l, "zastavka_artemenko");
+	cout << l.getString("zastavka_rucovoditel");
+	alignCout(l.getString("zastavka_vipolnil"), "longcenter");
+	cout << l.getString("zastavka_prepod");
+	alignCout(l.getString("zastavka_student"), "longcenter");
+	cout << l.getString("zastavka_morozova");
+	alignCout(l.getString("zastavka_rudnev"), "longcenter");
+	cout << l.getString("zastavka_assistent") << endl;
+	cout << l.getString("zastavka_artemenko");
 	cout << "" << endl;
 	cout << "" << endl;
 	cout << "" << endl;
-	alignCout(l.getString(l, "zastavka_doneck"), "center");
+	alignCout(l.getString("zastavka_doneck"), "center");
 	cout << "" << endl;
 	cout << "" << endl;
 	cout << "" << endl;
-	cout << l.getString(l, "zastavka_start");
-	alignCout(l.getString(l, "zastavka_lang"), "longcenter");
-	cout << l.getString(l, "zastavka_help");
-	alignCout(l.getString(l, "zastavka_about_prog"), "longcenter");
+	cout << l.getString("zastavka_start");
+	alignCout(l.getString("zastavka_lang"), "longcenter");
+	cout << l.getString("zastavka_help");
+	alignCout(l.getString("zastavka_about_prog"), "longcenter");
 }
-
-//void auth(Language&l){
-//	for (;;){
-//		system("cls");
-//		cout << "ÕÓÉ ÏÈÇÄÀ" << endl;
-//	}
-//}
 
 /////////////////////////////////////////////////////////////////
 

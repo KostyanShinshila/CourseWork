@@ -10,7 +10,7 @@ private:
 	string languages[languagesNum];
 public:
 	Language();
-	string getString(Language&l, string arg);
+	string getString(string arg);
 	string getPath();
 	string getLanguageName();
 	void changeLang();

@@ -3,11 +3,12 @@
 #include <string>
 #include <conio.h>
 #include "Interface.h"
-#include "Account.h"
+#include "User.h"
 using namespace std;
 
 Interface c;
 Language l;
+User user;
 
 void titulMenu(){
 	int key;
@@ -31,20 +32,37 @@ void titulMenu(){
 	} while (key != 27);
 }
 
-void menu(){
-	Money m("Доллары", 1500);
-	Money *pm = &m;
-	Account a("Пет", 123456, 0000, pm);
-	a.addMoney(1500);
-	cout << a.getSum() << endl;
-	cout << a.getPin() << endl;
-	system("pause");
+void auth(){
+	//Money m("Доллары", 1500);
+	//Account a("Пет", 123456, 0000, m);
+	//a.addMoney(1500);
+	//cout << a.getSum() << endl;
+	//cout << a.getPin() << endl;
+
+	for (;;){
+		system("cls");
+		cout << l.getString("auth_card");
+
+		/* If card in atm */
+		if (user.getIsPin()){
+			cout << l.getString("auth_card_status_t");
+
+		}
+
+		/* else */
+		else{
+			cout << l.getString("auth_card_status_f");
+
+		}
+
+		system("pause");
+	}
 }
 
 void main(){
 	setlocale(LC_ALL, "Russian");
 	system("color F0");
 	titulMenu();
-	menu();
-	//c.auth(l);
+	auth();
+	//menu();
 }
