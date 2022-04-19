@@ -39,24 +39,43 @@ void auth(){
 	//cout << a.getSum() << endl;
 	//cout << a.getPin() << endl;
 
-	for (;;){
+	int key;
+	do{
 		system("cls");
+		cout << "	" << l.getString("auth_hub") << endl;;
 		cout << l.getString("auth_card");
-
 		/* If card in atm */
 		if (user.getIsPin()){
-			cout << l.getString("auth_card_status_t");
-
+			cout << l.getString("auth_card_status_t") << endl; // В банкомате.
+			cout << endl;
+			cout << l.getString("auth_logoff") << endl; // Нажмите <d>, чтобы достать карту.
+			cout << l.getString("auth_proceed") << endl; // Нажмите <s>, чтобы продолжить.
 		}
 
 		/* else */
 		else{
-			cout << l.getString("auth_card_status_f");
+			cout << l.getString("auth_card_status_f") << endl;
+			cout << endl;
+			cout << l.getString("auth_enter_card") << endl;
+			cout << l.getString("auth_leave") << endl;
+		}
+
+		key = _getch();
+		switch (key){
+		case 's':
+			user.setIsPin();
+			break;
+		case 'd':
+			cout << "press d" << endl;
+			system("pause");
+			break;
 
 		}
 
-		system("pause");
-	}
+		fflush(stdin);
+	} while (key != 27);
+	
+	system("pause");
 }
 
 void main(){

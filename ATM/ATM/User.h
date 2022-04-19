@@ -6,10 +6,11 @@ using namespace std;
 class User: public Account{
 private:
 	Account acc;
-	bool isPin;
+	bool isPin; // Card is ATM?
 public:
 	void getName();
 	bool getIsPin();
+	void setIsPin();
 	User();
 };
 

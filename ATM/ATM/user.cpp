@@ -13,3 +13,7 @@ bool User::getIsPin(){
 	if (isPin) return true;
 	else return false;
 }
+
+void User::setIsPin(){
+	isPin ? isPin = false : isPin = true;
+}

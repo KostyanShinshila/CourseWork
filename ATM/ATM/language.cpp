@@ -61,7 +61,7 @@ string Language::getString(string arg){
 		system("pause");
 		return("Error");
 	}
-	return("Error");
+	return("String Error: <" + arg + "> ");
 }
 
 string Language::getLanguageName(){
