@@ -36,6 +36,18 @@ long Account::getIdent(){
 	return id;
 }
 
+long double Account::getBal(){
+	return m.getSum();
+}
+
+long Account::getLimit(){
+	return m.getLim();
+}
+
+string Account::getCurr(){
+	return m.getCurrency();
+}
+
 	/* Other */
 void Account::addMoney(long Sum){
 	m.setSum(m.getSum() + Sum);

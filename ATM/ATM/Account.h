@@ -13,11 +13,13 @@ public:
 	Account();
 	Account(string FIO, long Ident, int Pin, Money M);
 	void addMoney(long Sum);
-
+	
 	string getFIO();
-
 	int getPin();
-	void setPin(int Pin);
-
+	long double getBal();
 	long getIdent();
+	string getCurr();
+	long getLimit();
+
+	void setPin(int Pin);
 };

@@ -101,7 +101,46 @@ void auth(){
 	Sleep(2500); // delay 2.5s
 	cout << user->getFIO() << l.getString("auth_hello") << endl;
 	cout << endl;
-	system("pause");
+	cout << l.getString("auth_hello_proceed") << endl;
+	//system("pause");
+}
+
+void menu(){
+	int key;
+	do{
+		key = _getch();
+		system("cls");
+		cout << "	" << l.getString("menu_hub") << endl;
+		cout << l.getString("menu_bal") << user->getBal() << " " << user->getCurr() << " | ";
+		cout << l.getString("menu_lim") << user->getLimit() << " " << user->getCurr() << endl;
+		cout << endl;
+		cout << "1. " << l.getString("menu_list_addBal") << endl;
+		cout << "2. " << l.getString("menu_list_subBal") << endl;
+		cout << "3. " << l.getString("menu_list_history") << endl;
+		cout << endl;
+		cout << "4. " << l.getString("menu_list_transfer") << endl;
+		cout << "5. " << l.getString("menu_list_service") << endl;
+		cout << endl;
+		cout << "6. " << l.getString("menu_list_info") << endl;
+		cout << "7. " << l.getString("menu_list_exit") << endl;
+		switch (key){
+		case 's':
+			user->setIsPin();
+			break;
+		case 'd':
+			if (user->getIsPin()){
+				key = 27;
+			}
+			else{
+				system("cls");
+				user->setIsPin(false);
+				titulMenu();
+			}
+			break;
+		}
+
+		fflush(stdin);
+	} while (key != 27);
 }
 
 void main(){
@@ -109,4 +148,5 @@ void main(){
 	system("color F0");
 	titulMenu();
 	auth();
+	menu();
 }

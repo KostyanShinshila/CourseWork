@@ -5,11 +5,17 @@ using namespace std;
 class Money{
 protected:
 	string currency;
-	long sum;
+	long double sum;
+	long lim;
 
 public:
 	Money(string Currency, long Sum);
 	Money();
+
 	void setSum(long Sum);
-	long getSum();
+	void setLim(long Lim);
+
+	long double getSum();
+	long getLim();
+	string getCurrency();
 };
