@@ -5,7 +5,6 @@ using namespace std;
 
 class User: public Account{
 private:
-	Account acc;
 	bool isPin; // Card is ATM?
 public:
 	User();
@@ -14,5 +13,6 @@ public:
 	void getName();
 	bool getIsPin();
 	void setIsPin();
+	void setIsPin(bool arg);
 };
 

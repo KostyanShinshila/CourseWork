@@ -4,8 +4,6 @@
 using namespace std;
 
 User::User(){
-	Account a;
-	acc = a;
 	isPin = false;
 }
 
@@ -18,6 +16,10 @@ void User::setIsPin(){
 	isPin ? isPin = false : isPin = true;
 }
 
-User::~User(){
+void User::setIsPin(bool arg){
+	arg ? isPin = true : isPin = false;
+}
 
+User::~User(){
+	isPin = false;
 }

@@ -2,14 +2,14 @@
 #include <iostream>
 #include <string>
 #include <conio.h>
+#include <Windows.h>
 #include "Interface.h"
 #include "User.h"
 using namespace std;
 
 Interface c;
 Language l;
-User user;
-User *pu = &user;
+User *user = new User();
 
 void titulMenu(){
 	int key;
@@ -34,19 +34,13 @@ void titulMenu(){
 }
 
 void auth(){
-	//Money m("Доллары", 1500);
-	//Account a("Пет", 123456, 0000, m);
-	//a.addMoney(1500);
-	//cout << a.getSum() << endl;
-	//cout << a.getPin() << endl;
-
 	int key;
 	do{
 		system("cls");
 		cout << "	" << l.getString("auth_hub") << endl;;
 		cout << l.getString("auth_card");
 		/* If card in atm */
-		if (user.getIsPin()){
+		if (user->getIsPin()){
 			cout << l.getString("auth_card_status_t") << endl; // В банкомате.
 			cout << endl;
 			cout << l.getString("auth_logoff") << endl; // Нажмите <d>, чтобы достать карту.
@@ -64,13 +58,16 @@ void auth(){
 		key = _getch();
 		switch (key){
 		case 's':
-			user.setIsPin();
+			user->setIsPin();
 			break;
 		case 'd':
-			if (user.getIsPin()){
-				delete pu;
-				//titulMenu();
-				//system("pause");
+			if (user->getIsPin()){
+				key = 27;
+			}
+			else{
+				system("cls");
+				user->setIsPin(false);
+				titulMenu();
 			}
 			break;
 		}
@@ -78,6 +75,32 @@ void auth(){
 		fflush(stdin);
 	} while (key != 27);
 	
+	/* Enter pin */
+	int inputPin;
+	system("cls");
+	cout << "	" << l.getString("auth_get_pin_hub") << endl;
+	cout << l.getString("auth_get_pin_message") << endl;
+	cout << "> ";
+	for (;;){
+		int answ = scanf("%d", &inputPin); // If answ = 1 -> enter int
+		if (answ != 1 || inputPin < 1000 || inputPin > 9999){
+			scanf("%*[^\n]"); // clear buffer
+			system("cls");
+			cout << l.getString("auth_get_pin_error") << endl;
+			cout << l.getString("auth_get_pin_reply") << endl;
+			cout << "> ";
+		}
+
+		else break;
+	}
+
+	system("cls");
+	user->setPin(inputPin);
+	cout << "	" << l.getString("auth_hello_hub") << endl;
+	cout << l.getString("auth_delay") << endl;
+	Sleep(2500); // delay 2.5s
+	cout << user->getFIO() << l.getString("auth_hello") << endl;
+	cout << endl;
 	system("pause");
 }
 
@@ -86,5 +109,4 @@ void main(){
 	system("color F0");
 	titulMenu();
 	auth();
-	//menu();
 }

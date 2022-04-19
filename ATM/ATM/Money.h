@@ -6,10 +6,10 @@ class Money{
 protected:
 	string currency;
 	long sum;
-	void setSum(long Sum);
 
 public:
 	Money(string Currency, long Sum);
 	Money();
+	void setSum(long Sum);
 	long getSum();
 };
