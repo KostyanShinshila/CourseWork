@@ -9,6 +9,7 @@ using namespace std;
 Interface c;
 Language l;
 User user;
+User *pu = &user;
 
 void titulMenu(){
 	int key;
@@ -66,10 +67,12 @@ void auth(){
 			user.setIsPin();
 			break;
 		case 'd':
-			cout << "press d" << endl;
-			system("pause");
+			if (user.getIsPin()){
+				delete pu;
+				//titulMenu();
+				//system("pause");
+			}
 			break;
-
 		}
 
 		fflush(stdin);

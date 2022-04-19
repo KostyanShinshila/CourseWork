@@ -17,3 +17,7 @@ bool User::getIsPin(){
 void User::setIsPin(){
 	isPin ? isPin = false : isPin = true;
 }
+
+User::~User(){
+
+}
