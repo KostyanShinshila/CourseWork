@@ -2,12 +2,11 @@
 #include "Language.h"
 
 class Interface{
-	friend class Language;
 private:
 	void alignCout(string &, char*);
 	void getWindowSize(int &, int &);
 public:
 	Interface();
-	void zastavka();
-	void auth();
+	void zastavka(Language&l);
+	void auth(Language&l);
 };

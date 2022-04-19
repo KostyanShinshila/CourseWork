@@ -34,8 +34,8 @@ string Language::getPath(){
 	return("Error");
 }
 
-string Language::getString(string arg){
-	string path = getPath();
+string Language::getString(Language&l, string arg){
+	string path = l.getPath();
 
 	if (path != "Error"){
 		ifstream file(path);
@@ -74,16 +74,16 @@ void Language::setLanguageName(string arg){
 
 void Language::changeLang(){
 	system("cls");
-	cout << getString("switch_lang_sharp") << endl;
-	cout << getString("switch_lang_name") << endl;
+	cout << getString(*this, "switch_lang_sharp") << endl;
+	cout << getString(*this, "switch_lang_name") << endl;
 	cout << endl;
-	cout << getString("switch_lang_all");
+	cout << getString(*this, "switch_lang_all") << endl;
 	for (int i = 0; i < languagesNum; i++){
 		cout << languages[i] << "; ";
 	}
 	cout << endl;
-	cout << getString("switch_lang_now") << languageName << endl;
-	cout << getString("switch_lang_sm") << endl;
+	cout << getString(*this, "switch_lang_now") << languageName << endl;
+	cout << getString(*this, "switch_lang_sm") << endl;
 	string findLang;
 	cin >> findLang;
 
@@ -91,13 +91,13 @@ void Language::changeLang(){
 	for (int i = 0; i < languagesNum; i++){
 		if (findLang == languages[i]){
 			setLanguageName(languages[i]);
-			cout << getString("switch_lang_ok") << endl;
+			cout << getString(*this, "switch_lang_ok") << endl;
 			isFind = true;
 			break;
 		}
 	}
 
-	if (!isFind) cout << getString("switch_lang_er") << endl;
+	if (!isFind) cout << getString(*this, "switch_lang_er") << endl;
 	system("pause");
 	system("cls");
 }
