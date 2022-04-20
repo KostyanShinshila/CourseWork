@@ -96,12 +96,13 @@ void auth(){
 
 	system("cls");
 	user->setPin(inputPin);
+	user->setFIO(l.getString("user_name"));
 	cout << "	" << l.getString("auth_hello_hub") << endl;
 	cout << l.getString("auth_delay") << endl;
 	Sleep(2500); // delay 2.5s
 	cout << user->getFIO() << l.getString("auth_hello") << endl;
 	cout << endl;
-	cout << l.getString("auth_hello_proceed") << endl;
+	cout << l.getString("pause") << endl;
 	//system("pause");
 }
 
@@ -111,8 +112,8 @@ void menu(){
 		key = _getch();
 		system("cls");
 		cout << "	" << l.getString("menu_hub") << endl;
-		cout << l.getString("menu_bal") << user->getBal() << " " << user->getCurr() << " | ";
-		cout << l.getString("menu_lim") << user->getLimit() << " " << user->getCurr() << endl;
+		cout << l.getString("bal") << user->getBal() << " " << user->getCurr() << " | ";
+		cout << l.getString("lim") << user->getLimit() << " " << user->getCurr() << endl;
 		cout << endl;
 		cout << "1. " << l.getString("menu_list_addBal") << endl;
 		cout << "2. " << l.getString("menu_list_subBal") << endl;
@@ -124,8 +125,9 @@ void menu(){
 		cout << "6. " << l.getString("menu_list_info") << endl;
 		cout << "7. " << l.getString("menu_list_exit") << endl;
 		switch (key){
-		case 's':
-			user->setIsPin();
+		case '1':
+			user->checkPin(l);
+			user->addMoneyBal(l);
 			break;
 		case 'd':
 			if (user->getIsPin()){

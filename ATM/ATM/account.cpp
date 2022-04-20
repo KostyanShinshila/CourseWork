@@ -1,13 +1,10 @@
 #include "Account.h"
-#include <cstdlib>
-
 
 	/* Constructors */
 Account::Account(){
 	Money M;
 	m = M;
-	id = rand() % 999999 + 100000;
-	fio = "Петр Сергеевич Кондратьев";
+	id = 532125; // 6 simvolov
 }
 
 Account::Account(string FIO, long Ident, int Pin, Money M){
@@ -20,6 +17,10 @@ Account::Account(string FIO, long Ident, int Pin, Money M){
 	/* Set-metods */
 void Account::setPin(int Pin){
 	pin = Pin;
+}
+
+void Account::setFIO(string FIO){
+	fio = FIO;
 }
 
 

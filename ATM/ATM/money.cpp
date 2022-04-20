@@ -3,7 +3,7 @@
 Money::Money(string Currency, long Sum){
 	currency = Currency;
 	sum = Sum;
-	lim = 50000;
+	lim = 75000;
 }
 
 Money::Money(){

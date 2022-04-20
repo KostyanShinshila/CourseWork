@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Account.h"
+#include "Language.h"
 using namespace std;
 
 class User: public Account{
@@ -9,8 +10,9 @@ private:
 public:
 	User();
 	~User();
+	void checkPin(Language&l);
+	void addMoneyBal(Language&l);
 
-	void getName();
 	bool getIsPin();
 	void setIsPin();
 	void setIsPin(bool arg);

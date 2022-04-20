@@ -22,4 +22,5 @@ public:
 	long getLimit();
 
 	void setPin(int Pin);
+	void setFIO(string FIO);
 };
