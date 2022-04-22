@@ -13,6 +13,7 @@ public:
 	Account();
 	Account(string FIO, long Ident, int Pin, Money M);
 	void addMoney(long Sum);
+	void subMoney(long Sum);
 	
 	string getFIO();
 	int getPin();
@@ -23,4 +24,5 @@ public:
 
 	void setPin(int Pin);
 	void setFIO(string FIO);
+	void setCurr(string Curr);
 };

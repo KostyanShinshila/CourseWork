@@ -12,7 +12,7 @@ Money::Money(){
 	lim = 50000;
 }
 
-long double Money::getSum(){
+long Money::getSum(){
 	return sum;
 }
 
@@ -30,4 +30,8 @@ void Money::setSum(long Sum){
 
 void Money::setLim(long Lim){
 	lim = Lim;
+}
+
+void Money::setCurrency(string Currency){
+	currency = Currency;
 }

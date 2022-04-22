@@ -4,11 +4,13 @@
 #include <conio.h>
 #include <Windows.h>
 #include "Interface.h"
+#include "Database.h"
 #include "User.h"
 using namespace std;
 
 Interface c;
 Language l;
+Database bd;
 User *user = new User();
 
 void titulMenu(){
@@ -97,9 +99,12 @@ void auth(){
 	system("cls");
 	user->setPin(inputPin);
 	user->setFIO(l.getString("user_name"));
+	user->setCurr(l.getString("currency"));
 	cout << "	" << l.getString("auth_hello_hub") << endl;
 	cout << l.getString("auth_delay") << endl;
 	Sleep(2500); // delay 2.5s
+	system("cls");
+	cout << "	" << l.getString("auth_hello_hub") << endl;
 	cout << user->getFIO() << l.getString("auth_hello") << endl;
 	cout << endl;
 	cout << l.getString("pause") << endl;
@@ -122,22 +127,33 @@ void menu(){
 		cout << "4. " << l.getString("menu_list_transfer") << endl;
 		cout << "5. " << l.getString("menu_list_service") << endl;
 		cout << endl;
-		cout << "6. " << l.getString("menu_list_info") << endl;
-		cout << "7. " << l.getString("menu_list_exit") << endl;
+		cout << "6. " << l.getString("menu_list_cabinet") << endl;
+		cout << "7. " << l.getString("menu_list_info") << endl;
+		cout << endl;
+		cout << "8. " << l.getString("menu_list_exit") << endl;
 		switch (key){
 		case '1':
 			user->checkPin(l);
 			user->addMoneyBal(l);
 			break;
-		case 'd':
-			if (user->getIsPin()){
-				key = 27;
-			}
-			else{
-				system("cls");
-				user->setIsPin(false);
-				titulMenu();
-			}
+		case '2':
+			user->checkPin(l);
+			user->subMoneyBal(l);
+			break;
+		case '3':
+			user->checkPin(l);
+			user->showHistory(l, bd);
+			break;
+
+		case '6':
+			user->checkPin(l);
+			user->showProfile(l);
+			cout << "1. " << l.getString("profile_menu_ticket") << endl;
+			cout << "2. " << l.getString("profile_menu_back") << endl;
+			int input;
+			cin >> input;
+			if (input == 1) user->createTicket(l);
+			cout << l.getString("pause");
 			break;
 		}
 
@@ -146,8 +162,10 @@ void menu(){
 }
 
 void main(){
-	setlocale(LC_ALL, "Russian");
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
 	system("color F0");
+	bd.createFileLogs();
 	titulMenu();
 	auth();
 	menu();

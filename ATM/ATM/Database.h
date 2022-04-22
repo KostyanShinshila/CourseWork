@@ -9,4 +9,8 @@ private:
 public:
 	Database();
 	string getSettingsPath();
+	string getPath(string path);
+	void addLogOperation(string type);
+	void readLogOperation();
+	void createFileLogs();
 };

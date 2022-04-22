@@ -23,6 +23,9 @@ void Account::setFIO(string FIO){
 	fio = FIO;
 }
 
+void Account::setCurr(string Curr){
+	m.setCurrency(Curr);
+}
 
 	/* Get-metods */
 string Account::getFIO(){
@@ -52,6 +55,10 @@ string Account::getCurr(){
 	/* Other */
 void Account::addMoney(long Sum){
 	m.setSum(m.getSum() + Sum);
+}
+
+void Account::subMoney(long Sum){
+	m.setSum(m.getSum() - Sum);
 }
 
 	

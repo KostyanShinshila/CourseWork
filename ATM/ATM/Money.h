@@ -5,7 +5,7 @@ using namespace std;
 class Money{
 protected:
 	string currency;
-	long double sum;
+	long sum;
 	long lim;
 
 public:
@@ -14,8 +14,9 @@ public:
 
 	void setSum(long Sum);
 	void setLim(long Lim);
+	void setCurrency(string Currency);
 
-	long double getSum();
+	long getSum();
 	long getLim();
 	string getCurrency();
 };

@@ -79,6 +79,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="account.cpp" />
+    <ClCompile Include="card.cpp" />
     <ClCompile Include="database.cpp" />
     <ClCompile Include="interface.cpp" />
     <ClCompile Include="language.cpp" />
@@ -88,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account.h" />
+    <ClInclude Include="Card.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Language.h" />
