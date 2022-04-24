@@ -49,7 +49,7 @@ long Account::getIdent(){
 	return id;
 }
 
-long double Account::getBal(){
+long Account::getBal(){
 	return m.getSum();
 }
 

@@ -39,7 +39,10 @@
     <ClCompile Include="card.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="operations.cpp">
+    <ClCompile Include="service.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="payTax.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,7 +68,10 @@
     <ClInclude Include="Card.h">
       <Filter>Файлы исходного кода</Filter>
     </ClInclude>
-    <ClInclude Include="Operations.h">
+    <ClInclude Include="Service.h">
+      <Filter>Файлы исходного кода</Filter>
+    </ClInclude>
+    <ClInclude Include="PayTax.h">
       <Filter>Файлы исходного кода</Filter>
     </ClInclude>
   </ItemGroup>

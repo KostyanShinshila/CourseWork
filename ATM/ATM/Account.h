@@ -19,7 +19,7 @@ public:
 
 	string getFIO();
 	int getPin();
-	long double getBal();
+	long getBal();
 	long getIdent();
 	string getCurr();
 	long getLimit();

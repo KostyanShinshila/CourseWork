@@ -10,6 +10,8 @@ private:
 public:
 	Service();
 	void showService(Language&Language);
+	void showInfo(Language&l);
 	virtual void payService(User&user, long sum);
-	virtual void writeCheck(Database&bd, long sum);
+	virtual void writeCheck(Database&bd, string address, long sum);
+	virtual int getPayNumbers();
 };

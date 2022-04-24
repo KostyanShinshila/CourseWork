@@ -5,12 +5,15 @@
 #include <Windows.h>
 #include "Interface.h"
 #include "Database.h"
+#include "PayTax.h"
 #include "User.h"
 using namespace std;
 
 Interface c;
 Language l;
 Database bd;
+Service ser;
+PayTax payTax;
 User *user = new User();
 
 int getInt(int num){
@@ -23,6 +26,15 @@ int getInt(int num){
 		else
 			return num;
 	}
+}
+
+int isInt(string str){
+	for (int i = 0; i<str.size(); i++){
+		if (str[i] < '0' || str[i] > '9'){
+			return 0;
+		}
+	}
+	return 1;
 }
 
 void titulMenu(){
@@ -157,6 +169,51 @@ void menu(){
 		case '3':
 			user->checkPin(l);
 			user->showHistory(l, bd);
+			break;
+
+		case '5':
+			user->checkPin(l);
+			for (;;){
+				ser.showInfo(l);
+				int inputSer = 0;
+				inputSer = getInt(inputSer);
+				if (inputSer == 1){
+					// номер телефона
+				}
+				if (inputSer == 2){
+					system("cls");
+					payTax.showService(l);
+					string inn;
+					for (;;){ // проверка на 10 символов и на буквы
+						cout << "> ";
+						cin.ignore();
+						getline(cin, inn);
+						int strlenght = inn.length();
+						if (strlenght == payTax.getPayNumbers() && isInt(inn) == 1)
+							break;
+					}
+					for (;;){ // ввод суммы
+						cout << l.getString("service_pay_tax_sum") << endl;
+						cout << "> ";
+						long getSum = 0;
+						getSum = getInt(getSum);
+						if (getSum == -1)
+							break;
+						if (getSum < user->getBal()){
+							payTax.payService(*user, getSum);
+							cout << l.getString("service_pay_tax_good") << endl;
+							payTax.writeCheck(bd, inn, getSum);
+							break;
+						}
+						else{
+
+						}
+					}
+				}
+				if (inputSer == 4)
+					break; 
+				
+			}
 			break;
 
 		case '6':

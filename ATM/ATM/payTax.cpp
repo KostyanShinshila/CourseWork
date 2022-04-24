@@ -10,17 +10,26 @@ PayTax::PayTax(){
 }
 
 void PayTax::showService(Language&Language){
+	cout << "	" << Language.getString("service_pay_tax_hub") << endl;
+	cout << endl;
 	cout << Language.getString("service_pay_tax_message_1") << endl;
 	cout << Language.getString("service_pay_tax_message_2") << endl;
 	cout << Language.getString("service_pay_tax_message_3") << endl;
 	cout << Language.getString("service_pay_tax_message_4") << endl;
 	cout << Language.getString("service_pay_tax_message_5") << endl;
+	cout << endl;
+	cout << Language.getString("service_pay_tax_message_6") << endl;
+	cout << Language.getString("service_pay_tax_message_7") << endl;
 }
 
 void PayTax::payService(User&user, long sum){
 	user.subMoney(sum);
 }
 
-void PayTax::writeCheck(Database&bd, long sum){
-	bd.addLogOperation(serviceName + to_string(sum));
+void PayTax::writeCheck(Database&bd, string address, long sum){
+	bd.addLogOperation(address + " " + serviceName + " " + to_string(sum));
+}
+
+int PayTax::getPayNumbers(){
+	return payNumbers;
 }

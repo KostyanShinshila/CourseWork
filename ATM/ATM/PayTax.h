@@ -11,5 +11,6 @@ public:
 	PayTax();
 	void showService(Language&Language);
 	void payService(User&user, long sum);
-	void writeCheck(Database&bd, long sum);
+	void writeCheck(Database&bd, string address, long sum);
+	int getPayNumbers();
 };
