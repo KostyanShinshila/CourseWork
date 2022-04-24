@@ -1,0 +1,81 @@
+user_name|Schmyschenko Valery Albertovich
+Pause|Drücken Sie eine beliebige Taste, um fortzufahren.
+männlich|männlich
+weiblich|weiblich
+
+zastavka_name|Nationale Technische Universität Donezk
+zastavka_fac|Fakultät für CST
+zastavka_kaf|Abteilung für PI
+zastavka_curs|Kursprojekt
+zastavka_disciplina| Disziplin: "Objektorientierte Programmierung"
+zastavka_tema| zum Thema: "Objektorientiertes System "Bedienung des Bankautomaten (ATM)"
+zastavka_rucovoditel|Kopf:
+zastavka_prepod|st. Lehrer Cafe PI
+zastavka_morozova|Morozova O.V.
+zastavka_assistent|Assistent Cafe PI
+zastavka_artemenko|Artemenko O.G.
+zastavka_vipolnil|Erledigt von:
+zastavka_student|st. GR. PI-21g
+zastavka_rudnev|Rudnev K.K.
+zastavka_doneck|Donezk 2022
+zastavka_start|Start: <ENTER>
+zastavka_lang|Sprache ändern: <TAB>
+zastavka_exit|Beenden: <ESC>
+zastavka_about_author|Über den Autor: <a>
+zastavka_help|Bedienungsanleitung: <s>
+zastavka_about_prog|Über das Programm: <d>
+
+switch_lang_sharp|###########################
+switch_lang_name|Rahmen für Sprachwechsel
+switch_lang_all|Verfügbare Sprachen:
+switch_lang_now|Aktuelle Sprache:
+switch_lang_sm|Geben Sie den zu ändernden Sprachcode ein:
+switch_lang_ok|Sprache wurde erfolgreich geändert.
+switch_lang_er|Sprache wurde nicht gefunden.
+
+auth_hub|[Anmeldebildschirm]
+auth_card|Karte:
+auth_card_status_t|An einem Geldautomaten.
+auth_logoff|Drücken Sie <s>, um die Karte zu erhalten.
+auth_proceed|Drücken Sie <d>, um fortzufahren.
+auth_card_status_f|Nicht gefunden.
+auth_enter_card|Drücken Sie <s>, um eine Karte einzulegen.
+auth_leave|Drücken Sie zum Beenden <d>.
+auth_get_pin_hub|[Anmeldebildschirm]
+auth_get_pin_message|Bitte geben Sie Ihre PIN ein:
+auth_get_pin_limit(PIN - 4 Ziffern)
+auth_get_pin_error|Fehler. Ungültige PIN.
+auth_get_pin_reply|Bitte erneut eingeben:
+auth_delay|Bitte warten! Danke.
+auth_hello_hub|[Autorisierung abgeschlossen]
+auth_hello| willkommen!
+
+check_pin_hub|[PIN prüfen]
+check_pin_message|Um den Vorgang zu bestätigen, geben Sie den PIN-Code ein:
+check_pin_error|Fehler. Ungültige PIN.
+check_pin_reply|Bitte erneut eingeben:
+check_pin_delay|Bitte warten! Danke.
+
+bal|Ihr Guthaben:
+lim|Ihr Limit:
+
+menu_hub|[Hauptmenü des Geldautomaten]
+menu_list_addBal|Konto aufladen.
+menu_list_subBal|Geld abheben.
+menu_list_history|Übersetzungsverlauf.
+menu_list_transfer|Geld auf Konto überweisen.
+menu_list_service|Für eine Dienstleistung bezahlen.
+menu_list_info|Einstellungen.
+menu_list_exit|Beenden.
+
+add_money_hub|[Guthaben aufladen]
+add_money_message|Geben Sie den Betrag ein, den Sie in den Geldautomaten einzahlen möchten.
+add_money_blocked|Der Vorgang ist blockiert.
+add_money_blocked_limit|Grund: Das Limit auf der Karte wurde überschritten.
+add_money_blocked_odd|Grund: Verdächtige Operation.
+add_money_blocked_error|Ursache: Bitte geben Sie den Transaktionsbetrag erneut ein.
+add_money_delay|Bitte warten! Danke.
+add_money_ok|Vorgang erfolgreich abgeschlossen.
+
+
+help_info|Die Programmkonfigurationsdatei File.cfg besteht aus Anführungszeichen in vibe-Semikolon und einer Zeichenfolge mit dem Namen der Sprache und in Anführungszeichen dem Pfad zur Lokalisierungsdatei. Der Name der Sprache und der Pfad zur Lokalisierungsdatei müssen in derselben Zeile und in Anführungszeichen angegeben werden.

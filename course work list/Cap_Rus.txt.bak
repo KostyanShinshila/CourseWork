@@ -1,0 +1,154 @@
+user_name|Жмышенко Валерий Альбертович
+pause|Нажмите любую кнопку, чтобы продолжить..
+male|Мужской
+female|Женский
+currency|Руб
+bal|Баланс: 
+lim|Лимит: 
+
+zastavka_name|Донецкий Национальный Технический Университет
+zastavka_fac|Факультет КНТ  
+zastavka_kaf|Кафедра ПИ
+zastavka_curs|Курсовой проект
+zastavka_disciplina|по дисциплине: "Объектно-ориентированное программирование"
+zastavka_tema|на тему: "Объектно-ориентированная система "Работа банковского аппарата (АТМ)"
+zastavka_rucovoditel|Руководитель:
+zastavka_prepod|ст. преп. каф. ПИ
+zastavka_morozova|Морозова О.В.    
+zastavka_assistent|асс. каф. ПИ
+zastavka_artemenko|Артеменко О.Г.
+zastavka_vipolnil|Выполнил:  
+zastavka_student|ст. гр. ПИ-21г  
+zastavka_rudnev|Руднев К.К.     
+zastavka_doneck|Донецк 2022
+zastavka_start|Начать: <ENTER>
+zastavka_lang|Сменить язык: <TAB>
+zastavka_exit|Выйти: <ESC>
+zastavka_about_author|Об авторе: <a>
+zastavka_help|Руководство оператора: <s>
+zastavka_about_prog|О программе: <d>                
+
+switch_lang_sharp|[ Меню языков ]
+switch_lang_name|Кадр смены языка
+switch_lang_all|Доступные языки: 
+switch_lang_now|Текущий язык: 
+switch_lang_sm|Введите код языка для смены: 
+switch_lang_ok|Язык был успешно сменен.
+switch_lang_er|Язык не был найден.
+
+auth_hub|[ Экран авторизации ]
+auth_card|Карта: 
+auth_card_status_t|В банкомате.
+auth_logoff|Нажмите <s>, чтобы достать карту.
+auth_proceed|Нажмите <d>, чтобы продолжить.
+auth_card_status_f|Не обнаружена.
+auth_enter_card|Нажмите <s>, чтобы вставить карту.
+auth_leave|Нажмите <d>, чтобы выйти.
+auth_get_pin_hub|[Экран авторизации]
+auth_get_pin_message|Пожалуйста, введите ПИН-код:
+auth_get_pin_tip|<этот пин-код будет закреплен за картой>
+auth_get_pin_error|Ошибка. Неверный ПИН-код.
+auth_get_pin_reply|Пожалуйста, повторите ввод:
+auth_delay|Пожалуйста, подождите! Спасибо.
+auth_hello_hub|[Авторизация завершена]
+auth_hello|, добро пожаловать!
+
+check_pin_hub|[ Проверка ПИН-Кода ]
+check_pin_message|Для подтверждения операции введите ПИН-Код:
+check_pin_error|Ошибка. Неверный ПИН-код.
+check_pin_reply|Пожалуйста, повторите ввод:
+check_pin_delay|Пожалуйста, подождите! Спасибо.
+
+menu_hub|[ Главное меню ]
+menu_list_addBal|Пополнить счет.
+menu_list_subBal|Снять деньги.
+menu_list_history|История операций.
+menu_list_transfer|Перевести деньги на счет.
+menu_list_service|Оплатить услугу.
+menu_list_cabinet|Профиль.
+menu_list_info|Настройки.
+menu_list_exit|Выход.
+
+add_money_hub|[ Пополнить баланс ]
+add_money_message|Введите сумму, которую хотите внести в банкомат.
+add_money_blocked|Операция заблокирована.
+add_money_blocked_limit|Причина: Лимит на карте превышен.
+add_money_blocked_odd|Причина: Подозрительная операция.
+add_money_blocked_error|Причина: Повторите ввод суммы операции.
+add_money_blocked_reply|Введите сумму пополнения еще раз.
+add_money_delay|Пожалуйста, подождите! Спасибо.
+add_money_ok|Операция успешно проведена.
+
+sub_money_hub|[ Снять деньги ]
+sub_money_message|Введите сумму, которую хотите снять.
+sub_money_blocked|Операция заблокирована.
+sub_money_blocked_odd|Причина: Подозрительная операция.
+sub_money_blocked_error|Причина: Повторите ввод суммы операции.
+sub_money_blocked_reply|Введите сумму пополнения еще раз.
+sub_money_delay|Пожалуйста, подождите! Спасибо.
+sub_money_ok|Операция успешно проведена.
+
+history_hub|[ История операций ]
+history_message|Вывод всех ваших недавних операций на аккаунте: 
+
+profile_hub|[ Профиль ]
+profile_message|Полная информация о Вашем аккаунте
+profile_edit|  <Изменить можно оставив тикет>
+profile_id|Номер аккаунта: 
+profile_card|Номер вашей карты: 
+profile_card_name|Имя карты: 
+profile_card_time|Срок действия: 
+profile_fio|ФИО: 
+profile_gender|Пол: 
+profile_birthday|День рождения: 
+profile_bal|Текущий баланс: 
+profile_limit|Лимит аккаунта: 
+
+profile_menu_ticket|Открыть тикет.
+profile_menu_back|Назад.
+
+ticket_hub|[ Меню тикетов ]
+ticket_message|Выберите какой тикет нужно открыть для тех. поддержки:
+ticket_fio|Смена имени.
+ticket_birthday|Смена дня рождения.
+ticket_card_name|Смена имени карты.
+ticket_card_time|Продление карты.
+ticket_limit|Увеличение лимита баланса.
+ticket_back|Назад.
+ticket_back_message|Вы вернулись назад.
+ticket_error|Повторите ввод.
+ticket_answer|Задать вопрос тех. поддержке.
+ticket_ans_message|На что вы хотите изменить?
+ticket_ans_good|Тех. поддержка скоро рассмотрит ваше предложение.
+ticket_ans_card_time|Ваша карта еще долго будет действительна.
+ticket_ans_limit|Введите желаемый лимит: 
+ticket_ans_limit_good|Наш банк сможет изменить ваш лимит.
+ticket_ans_limit_bad|Наш банк не согласен на такие условия.
+ticket_ans_finish|Операция успешно завершена.
+ticket_ans_tp|На данный момент все операторы тех. поддержки заняты.
+ticket_ans_tp_end|Попробуйте повторить запрос позже.
+
+add_log_addbal|Счет пополнен на 
+add_log_subbal|Со счета снято 
+add_log_change_name|Изменено имя аккаунта на 
+add_log_change_birthday|Изменено день рождение на
+add_log_change_card_name|Изменено название карты на 
+add_log_change_limit|Изменен лимит баланса на 
+
+settings_hub|[ Настройки ]
+settings_message|Выберите команду для работы с настройками терминала: 
+settings_lang|Изменить язык.
+settings_clear|Обнулить аккаунт (<перегрузка>).
+settings_null|Очистить операции.
+settings_back|Назад.
+settings_lang_message|Настройка языка завершена.
+settings_clear_message|Средства с аккаунта списаны.
+settings_null_message|Операции успешно очищены.
+
+service_pay_tax_message_1|Налог — это принудительно взимаемая плата в установленном размере
+service_pay_tax_message_2|с физических или юридических лиц в пользу государства.
+service_pay_tax_message_3|Отчисление различных налогов в пользу государства необходимо для
+service_pay_tax_message_4|финансирования системы здравоохранения, культуры, образование, оборону,
+service_pay_tax_message_5|социальную поддержку, содержание различных аппаратов управления.
+
+help_info|Файл конфигурации программы File.cfg состоит из кавычек в вибе  точки с запятой и строки с названием языка и в кавычках пути к файлу  локализации. Название языка и путь к файлу локализации и надо указывать  на одной строке и внутри кавычек.
