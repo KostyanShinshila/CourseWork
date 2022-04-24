@@ -39,6 +39,10 @@ string User::getBirthday(){
 	return birthday;
 }
 
+void User::resetAccount(){
+	//this->operator!();
+	!*this;
+}
 
 void User::checkPin(Language&l){
 	int inputPin;
@@ -158,6 +162,10 @@ void User::subMoneyBal(Language&l){
 	cout << l.getString("pause");
 }
 
+void User::setBirthday(string birth){
+	birthday = birth;
+}
+
 void User::showHistory(Language&l, Database&bd){
 	system("cls");
 	cout << "	" << l.getString("history_hub") << endl;
@@ -189,7 +197,7 @@ void User::createTicket(Language&l){
 		int check = scanf("%d", &input);
 		if (check != 1){
 			scanf("%*[^\n]");
-			cout << "6. " << l.getString("ticket_error") << endl;
+			cout <<  l.getString("ticket_error") << endl;
 		}
 		else break;
 	}
@@ -209,7 +217,57 @@ void User::createTicket(Language&l){
 		cout << l.getString("ticket_ans_finish") << endl;
 		bd.addLogOperation(l.getString("add_log_change_name") + change);
 		break;
+	case 2:
+		cout << l.getString("ticket_ans_message") << endl;
+		cout << "> ";
+		cin.ignore();
+		getline(cin, change);
+		cout << l.getString("ticket_ans_good") << endl;
+		setBirthday(change);
+		Sleep(3000);
+		cout << l.getString("ticket_ans_finish") << endl;
+		bd.addLogOperation(l.getString("add_log_change_birthday") + change);
+		break;
+	case 3:
+		cout << l.getString("ticket_ans_message") << endl;
+		cout << "> ";
+		cin.ignore();
+		getline(cin, change);
+		cout << l.getString("ticket_ans_good") << endl;
+		setCardName(change);
+		Sleep(3000);
+		cout << l.getString("ticket_ans_finish") << endl;
+		bd.addLogOperation(l.getString("add_log_change_card_name") + change);
+		break;
+	case 4:
+		cout << l.getString("ticket_ans_card_time") << endl;
+		break;
+	case 5: // limit
+		long newLimit;
+		cout << l.getString("ticket_ans_limit") << endl;
+		cout << "> ";
+		cin.ignore();
+		for (;;){
+			int check = scanf("%d", &newLimit);
+			if (check != 1 || newLimit < 5000 || newLimit > 120000){
+				scanf("%*[^\n]");
+				cout << l.getString("ticket_ans_limit_bad") << endl;
+				cout << "> ";
+			}
+			else break;
+		}
+		cout << l.getString("ticket_ans_good") << endl;
+		setLimit(newLimit);
+		Sleep(3000);
+		cout << l.getString("ticket_ans_finish") << endl;
+		bd.addLogOperation(l.getString("add_log_change_limit") + to_string(newLimit));
+		break;
 	case 6:
+		cout << l.getString("ticket_ans_tp") << endl;
+		cout << l.getString("ticket_ans_tp_end") << endl;
+		break;
+	case 7:
+		cout << l.getString("ticket_back_message") << endl;
 		return;
 		break;
 	}

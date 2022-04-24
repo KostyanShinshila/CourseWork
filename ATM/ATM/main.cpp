@@ -13,6 +13,18 @@ Language l;
 Database bd;
 User *user = new User();
 
+int getInt(int num){
+	for (;;){
+		int answ = scanf("%d", &num); // If answ = 1 -> enter int
+		if (answ != 1){
+			scanf("%*[^\n]"); // clear buffer
+			cout << "> ";
+		}
+		else
+			return num;
+	}
+}
+
 void titulMenu(){
 	int key;
 	do{
@@ -82,6 +94,8 @@ void auth(){
 	system("cls");
 	cout << "	" << l.getString("auth_get_pin_hub") << endl;
 	cout << l.getString("auth_get_pin_message") << endl;
+	cout << l.getString("auth_get_pin_tip") << endl;
+	cout << endl;
 	cout << "> ";
 	for (;;){
 		int answ = scanf("%d", &inputPin); // If answ = 1 -> enter int
@@ -147,16 +161,63 @@ void menu(){
 
 		case '6':
 			user->checkPin(l);
-			user->showProfile(l);
-			cout << "1. " << l.getString("profile_menu_ticket") << endl;
-			cout << "2. " << l.getString("profile_menu_back") << endl;
-			int input;
-			cin >> input;
-			if (input == 1) user->createTicket(l);
-			cout << l.getString("pause");
+			for (;;){
+				user->showProfile(l);
+				cout << "1. " << l.getString("profile_menu_ticket") << endl;
+				cout << "2. " << l.getString("profile_menu_back") << endl;
+				cout << endl;
+				cout << "> ";
+				int input = 0;
+				input = getInt(input);
+				if (input == 1) user->createTicket(l);
+				if (input == 2){
+					cout << l.getString("pause");
+					break;
+				}
+			}
+			break;
+		
+		case '7':                                                                    
+			user->checkPin(l);
+			for (;;){
+				system("cls");
+				cout << "	" << l.getString("settings_hub") << endl;
+				cout << "1. " << l.getString("settings_lang") << endl;
+				cout << "2. " << l.getString("settings_clear") << endl;
+				cout << "3. " << l.getString("settings_null") << endl;
+				cout << "4. " << l.getString("settings_back") << endl;
+				int getInput = 0;
+				cout << endl;
+				cout << "> ";
+				getInput = getInt(getInput);
+				if (getInput == 1){
+					l.changeLang();
+					system("pause");
+				}
+
+				if (getInput == 2){
+					user->resetAccount();
+					cout << l.getString("settings_clear_message") << endl;
+					system("pause");
+				}
+
+				if (getInput == 3){
+					bd.createFileLogs();
+					cout << l.getString("settings_null_message") << endl;
+					system("pause");
+				}
+
+				if (getInput == 4)
+					break;
+			}
+			cout << endl;
+			cout << l.getString("pause") << endl;
+			break;
+
+		case '8':
+			key = 27;
 			break;
 		}
-
 		fflush(stdin);
 	} while (key != 27);
 }

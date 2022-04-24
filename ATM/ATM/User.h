@@ -26,7 +26,9 @@ public:
 	string getGender();
 	string getBirthday();
 
+	void resetAccount();
 	void setIsPin();
 	void setIsPin(bool arg);
+	void setBirthday(string birth);
 };
 

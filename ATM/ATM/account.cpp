@@ -27,9 +27,18 @@ void Account::setCurr(string Curr){
 	m.setCurrency(Curr);
 }
 
+void Account::setLimit(long limit){
+	m.setLim(limit);
+}
+
 	/* Get-metods */
 string Account::getFIO(){
 	return fio;
+}
+
+Account Account::operator!(){
+	this->m.setSum(0);
+	return *this;
 }
 
 int Account::getPin(){

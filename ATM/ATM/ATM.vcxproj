@@ -85,6 +85,7 @@
     <ClCompile Include="language.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="money.cpp" />
+    <ClCompile Include="operations.cpp" />
     <ClCompile Include="user.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +95,7 @@
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Language.h" />
     <ClInclude Include="Money.h" />
+    <ClInclude Include="Operations.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
