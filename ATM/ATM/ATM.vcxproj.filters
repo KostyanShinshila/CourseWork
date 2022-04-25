@@ -51,6 +51,9 @@
     <ClCompile Include="transferToWallet.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="transferToCard.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Language.h">
@@ -84,6 +87,9 @@
       <Filter>Файлы исходного кода</Filter>
     </ClInclude>
     <ClInclude Include="TransferToWallet.h">
+      <Filter>Файлы исходного кода</Filter>
+    </ClInclude>
+    <ClInclude Include="TransferToCard.h">
       <Filter>Файлы исходного кода</Filter>
     </ClInclude>
   </ItemGroup>
