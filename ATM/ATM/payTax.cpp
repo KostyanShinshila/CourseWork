@@ -5,8 +5,8 @@
 using namespace std;
 
 PayTax::PayTax(){
-	serviceName = "Оплата налогов";
-	payNumbers = 10;
+	serviceName = "Оплата налогов на ИНН";
+	payNumbers = 12;
 }
 
 void PayTax::showService(Language&Language){
@@ -27,7 +27,7 @@ void PayTax::payService(User&user, long sum){
 }
 
 void PayTax::writeCheck(Database&bd, string address, long sum){
-	bd.addLogOperation(address + " " + serviceName + " " + to_string(sum));
+	bd.addLogOperation(serviceName + " " + address + " - " + to_string(sum) + " Руб.");
 }
 
 int PayTax::getPayNumbers(){

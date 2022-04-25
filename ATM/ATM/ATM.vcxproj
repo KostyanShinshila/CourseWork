@@ -87,6 +87,8 @@
     <ClCompile Include="money.cpp" />
     <ClCompile Include="payTax.cpp" />
     <ClCompile Include="service.cpp" />
+    <ClCompile Include="transferToPhone.cpp" />
+    <ClCompile Include="transferToWallet.cpp" />
     <ClCompile Include="user.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +100,8 @@
     <ClInclude Include="Money.h" />
     <ClInclude Include="PayTax.h" />
     <ClInclude Include="Service.h" />
+    <ClInclude Include="TransferToPhone.h" />
+    <ClInclude Include="TransferToWallet.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

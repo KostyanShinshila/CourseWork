@@ -5,6 +5,8 @@
 #include <Windows.h>
 #include "Interface.h"
 #include "Database.h"
+#include "TransferToPhone.h"
+#include "TransferToWallet.h"
 #include "PayTax.h"
 #include "User.h"
 using namespace std;
@@ -13,7 +15,7 @@ Interface c;
 Language l;
 Database bd;
 Service ser;
-PayTax payTax;
+
 User *user = new User();
 
 int getInt(int num){
@@ -64,6 +66,8 @@ void auth(){
 	do{
 		system("cls");
 		cout << "	" << l.getString("auth_hub") << endl;;
+		cout << l.getString("auth_message") << endl;
+		cout << endl;
 		cout << l.getString("auth_card");
 		/* If card in atm */
 		if (user->getIsPin()){
@@ -174,44 +178,116 @@ void menu(){
 		case '5':
 			user->checkPin(l);
 			for (;;){
+				system("cls");
 				ser.showInfo(l);
+				cout << endl;
+				cout << "> "; 
 				int inputSer = 0;
 				inputSer = getInt(inputSer);
-				if (inputSer == 1){
-					// номер телефона
+				if (inputSer == 1){ // Пополнение телефона
+					TransferToPhone toPhone;
+					system("cls");
+					toPhone.showService(l);
+					string phone;
+					int innSize = toPhone.getPayNumbers();
+					for (;;){
+						getline(cin, phone);
+						int strlenght = phone.length();
+						if (strlenght == innSize && isInt(phone) == 1)
+							break;
+						cout << "> ";
+					}
+					for (;;){
+						cout << endl;
+						cout << l.getString("service_to_phone_sum") << endl;
+						cout << "> ";
+						long getSum = 0;
+						getSum = getInt(getSum);
+						if (getSum == -1)
+							break;
+						if (getSum <= user->getBal()){
+							toPhone.payService(*user, getSum);
+							cout << l.getString("service_to_phone_good") << endl;
+							toPhone.writeCheck(bd, phone, getSum);
+							system("pause");
+							break;
+						}
+						else{
+							cout << l.getString("service_to_phone_bad") << endl;
+						}
+					}
 				}
 				if (inputSer == 2){
 					system("cls");
+					PayTax payTax;
 					payTax.showService(l);
 					string inn;
+					int innSize = payTax.getPayNumbers();
 					for (;;){ // проверка на 10 символов и на буквы
-						cout << "> ";
-						cin.ignore();
+						//cin.ignore();
 						getline(cin, inn);
 						int strlenght = inn.length();
-						if (strlenght == payTax.getPayNumbers() && isInt(inn) == 1)
+						if (strlenght == innSize && isInt(inn) == 1)
 							break;
+						cout << "> ";
 					}
 					for (;;){ // ввод суммы
+						cout << endl;
 						cout << l.getString("service_pay_tax_sum") << endl;
 						cout << "> ";
 						long getSum = 0;
 						getSum = getInt(getSum);
 						if (getSum == -1)
 							break;
-						if (getSum < user->getBal()){
+						if (getSum <= user->getBal()){
 							payTax.payService(*user, getSum);
 							cout << l.getString("service_pay_tax_good") << endl;
 							payTax.writeCheck(bd, inn, getSum);
+							system("pause");
 							break;
 						}
 						else{
-
+							cout << l.getString("service_pay_tax_bad") << endl;
 						}
 					}
 				}
-				if (inputSer == 4)
-					break; 
+				if (inputSer == 3){ // Online wallet
+					TransferToWallet toWallet;
+					system("cls");
+					toWallet.showService(l);
+					string wallet;
+					int innSize = toWallet.getPayNumbers();
+					for (;;){
+						getline(cin, wallet);
+						int strlenght = wallet.length();
+						if (strlenght == innSize && isInt(wallet) == 1)
+							break;
+						cout << "> ";
+					}
+					for (;;){
+						cout << endl;
+						cout << l.getString("service_pay_wallet_sum") << endl;
+						cout << "> ";
+						long getSum = 0;
+						getSum = getInt(getSum);
+						if (getSum == -1)
+							break;
+						if (getSum <= user->getBal()){
+							toWallet.payService(*user, getSum);
+							cout << l.getString("service_pay_wallet_good") << endl;
+							toWallet.writeCheck(bd, wallet, getSum);
+							system("pause");
+							break;
+						}
+						else{
+							cout << l.getString("service_pay_wallet_bad") << endl;
+						}
+					}
+				}
+				if (inputSer == 4){
+					cout << l.getString("pause") << endl;
+					break;
+				}
 				
 			}
 			break;

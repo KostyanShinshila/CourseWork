@@ -17,5 +17,6 @@ void Service::showInfo(Language&l){
 	cout << "1. " << l.getString("service_to_phone") << endl;
 	cout << "2. " << l.getString("service_pay_tax") << endl;
 	cout << "3. " << l.getString("service_to_wallet") << endl;
+	cout << endl;
 	cout << "4. " << l.getString("service_back") << endl;
 }
