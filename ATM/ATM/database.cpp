@@ -59,3 +59,45 @@ void Database::readLogOperation(){
 		cout << str << endl;
 	}
 }
+
+void Database::readAvailableCards(int amount){
+	string path = getPath("Cards");
+	ifstream file(path);
+	if (!file){
+		cout << "\nConfig file not found.\n" << endl;
+		system("pause");
+		return;
+	}
+
+	if (amount == -1){ // вывод всего
+		string str;
+		while (getline(file, str)){
+			cout << " " << str << endl;
+		}
+	}
+
+	else{
+		for (int i = 0; i < amount; i++){
+			string str;
+			getline(file, str);
+			cout << " " << str << endl;
+		}
+	}
+}
+
+bool Database::findCard(string desired){
+	string path = getPath("Cards");
+	ifstream file(path);
+	if (!file){
+		cout << "\nConfig file not found.\n" << endl;
+		system("pause");
+		return false;
+	}
+
+	string str;
+	while (getline(file, str)){
+		if (str == desired)
+			return true;
+	}
+	return false;
+}

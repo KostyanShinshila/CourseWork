@@ -7,6 +7,7 @@
 #include "Database.h"
 #include "TransferToPhone.h"
 #include "TransferToWallet.h"
+#include "TransferToCard.h"
 #include "PayTax.h"
 #include "User.h"
 using namespace std;
@@ -15,6 +16,8 @@ Interface c;
 Language l;
 Database bd;
 Service ser;
+TransferToCard toCard;
+string card;
 
 User *user = new User();
 
@@ -166,13 +169,48 @@ void menu(){
 			user->checkPin(l);
 			user->addMoneyBal(l);
 			break;
+
 		case '2':
 			user->checkPin(l);
 			user->subMoneyBal(l);
 			break;
+
 		case '3':
 			user->checkPin(l);
 			user->showHistory(l, bd);
+			break;
+
+		case '4':
+			user->checkPin(l);
+			toCard.showInfo(l);
+			toCard.showRecentTrans(bd);
+			cout << endl;
+			cout << l.getString("transfer_card_get_card") << endl;
+			cout << l.getString("transfer_card_help") << endl;
+			for (;;){
+				cin.clear();
+				getline(cin, card);
+				if (toCard.checkCardOnValid(bd, card))
+					break;
+				cout << "> ";
+			}
+			cout << endl;
+			cout << l.getString("transfer_card_sum") << endl;
+			for (;;){
+				long toCardSum = 0;
+				cout << "> ";
+				toCardSum = getInt(toCardSum);
+				if (toCardSum == -1)
+					break;
+				if (toCardSum <= user->getBal() && toCardSum > 100){
+					toCard.payService(*user, toCardSum);
+					cout << l.getString("transfer_card_sum_good") << endl;
+					toCard.writeCheck(bd, card, toCardSum);	
+					cout << l.getString("pause") << endl;
+					break;
+				}
+				cout << l.getString("transfer_card_sum_bad") << endl;
+			}
 			break;
 
 		case '5':
@@ -225,6 +263,7 @@ void menu(){
 					int innSize = payTax.getPayNumbers();
 					for (;;){ // проверка на 10 символов и на буквы
 						//cin.ignore();
+
 						getline(cin, inn);
 						int strlenght = inn.length();
 						if (strlenght == innSize && isInt(inn) == 1)

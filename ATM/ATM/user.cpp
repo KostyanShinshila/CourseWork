@@ -216,6 +216,7 @@ void User::createTicket(Language&l){
 		Sleep(3000);
 		cout << l.getString("ticket_ans_finish") << endl;
 		bd.addLogOperation(l.getString("add_log_change_name") + change);
+		system("pause");
 		break;
 	case 2:
 		cout << l.getString("ticket_ans_message") << endl;
@@ -227,6 +228,7 @@ void User::createTicket(Language&l){
 		Sleep(3000);
 		cout << l.getString("ticket_ans_finish") << endl;
 		bd.addLogOperation(l.getString("add_log_change_birthday") + change);
+		system("pause");
 		break;
 	case 3:
 		cout << l.getString("ticket_ans_message") << endl;
@@ -238,9 +240,11 @@ void User::createTicket(Language&l){
 		Sleep(3000);
 		cout << l.getString("ticket_ans_finish") << endl;
 		bd.addLogOperation(l.getString("add_log_change_card_name") + change);
+		system("pause");
 		break;
 	case 4:
 		cout << l.getString("ticket_ans_card_time") << endl;
+		system("pause");
 		break;
 	case 5: // limit
 		long newLimit;
@@ -261,13 +265,16 @@ void User::createTicket(Language&l){
 		Sleep(3000);
 		cout << l.getString("ticket_ans_finish") << endl;
 		bd.addLogOperation(l.getString("add_log_change_limit") + to_string(newLimit));
+		system("pause");
 		break;
 	case 6:
 		cout << l.getString("ticket_ans_tp") << endl;
 		cout << l.getString("ticket_ans_tp_end") << endl;
+		system("pause");
 		break;
 	case 7:
 		cout << l.getString("ticket_back_message") << endl;
+		system("pause");
 		return;
 		break;
 	}
