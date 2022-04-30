@@ -1,4 +1,0 @@
-RU|D:\\course work list\\Cap_Rus.txt
-EN|D:\\course work list\\Cap_Eng.txt
-DE|D:\\course work list\\Cap_Ger.txt
-Operations|D:\\course work list\\Operations log.txt
