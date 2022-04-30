@@ -13,8 +13,9 @@ string Database::getSettingsPath(){
 string Database::getPath(string path){
 	ifstream file(settingsPath);
 	if (!file){
-		cout << "\nConfig file not found.\n" << endl;
+		cout << "\nConfig file not found.\n" << "\n";
 		system("pause");
+		return("Error.");
 	}
 
 	string str;
@@ -38,11 +39,11 @@ void Database::addLogOperation(string type){
 	string path = getPath("Operations");
 	ofstream file(path, ios::app);
 	if (!file){
-		cout << "\nWrite file error.\n" << endl;
+		cout << "\nWrite file error.\n" << "\n";
 		system("pause");
 		return;
 	}
-	file << type << endl;
+	file << type << "\n";
 	file.close();
 }
 
@@ -50,13 +51,13 @@ void Database::readLogOperation(){
 	string path = getPath("Operations");
 	ifstream file(path);
 	if (!file){
-		cout << "\nConfig file not found.\n" << endl;
+		cout << "\nConfig file not found.\n" << "\n";
 		system("pause");
 	}
 
 	string str;
 	while (getline(file, str)){
-		cout << str << endl;
+		cout << str << "\n";
 	}
 }
 
@@ -64,7 +65,7 @@ void Database::readAvailableCards(int amount){
 	string path = getPath("Cards");
 	ifstream file(path);
 	if (!file){
-		cout << "\nConfig file not found.\n" << endl;
+		cout << "\nConfig file not found.\n" << "\n";
 		system("pause");
 		return;
 	}
@@ -72,7 +73,7 @@ void Database::readAvailableCards(int amount){
 	if (amount == -1){ // вывод всего
 		string str;
 		while (getline(file, str)){
-			cout << " " << str << endl;
+			cout << " " << str << "\n";
 		}
 	}
 
@@ -80,8 +81,22 @@ void Database::readAvailableCards(int amount){
 		for (int i = 0; i < amount; i++){
 			string str;
 			getline(file, str);
-			cout << " " << str << endl;
+			cout << " " << str << "\n";
 		}
+	}
+}
+
+void Database::readTxt(string type){
+	string path = getPath(type);
+	ifstream file(path);
+	if (!file){
+		cout << "\nConfig file not found.\n" << "\n";
+		system("pause");
+		return;
+	}
+	string str;
+	while (getline(file, str)){
+		cout << str << "\n";
 	}
 }
 
@@ -89,7 +104,7 @@ bool Database::findCard(string desired){
 	string path = getPath("Cards");
 	ifstream file(path);
 	if (!file){
-		cout << "\nConfig file not found.\n" << endl;
+		cout << "\nConfig file not found.\n" << "\n";
 		system("pause");
 		return false;
 	}

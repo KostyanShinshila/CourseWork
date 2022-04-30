@@ -10,10 +10,10 @@ TransferToWallet::TransferToWallet(){
 }
 
 void TransferToWallet::showService(Language&Language){
-	cout << "	" << Language.getString("service_pay_wallet_hub") << endl;
-	cout << Language.getString("service_pay_wallet_message") << endl;
-	cout << Language.getString("service_pay_wallet_help") << endl;
-	cout << endl;
+	cout << "	" << Language.getString("service_pay_wallet_hub") << "\n";
+	cout << Language.getString("service_pay_wallet_message") << "\n";
+	cout << Language.getString("service_pay_wallet_help") << "\n";
+	cout << "\n";
 }
 
 void TransferToWallet::payService(User&user, long sum){

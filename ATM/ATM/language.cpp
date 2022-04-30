@@ -17,7 +17,7 @@ string Language::getPath(){
 	string path = d.getSettingsPath();
 	ifstream file(path);
 	if (!file){
-		cout << "\nConfig file not found.\n" << endl;
+		cout << "\nConfig file not found.\n" << "\n";
 		system("pause");
 	}
 
@@ -40,7 +40,7 @@ string Language::getString(string arg){
 	if (path != "Error"){
 		ifstream file(path);
 		if (!file){
-			cout << "\nPath file not found.\n" << endl;
+			cout << "\nPath file not found.\n" << "\n";
 			system("pause");
 		}
 
@@ -57,7 +57,7 @@ string Language::getString(string arg){
 	}
 
 	else{
-		cout << "\nPath find error.\n" << endl;
+		cout << "\nPath find error.\n" << "\n";
 		system("pause");
 		return("Error");
 	}
@@ -74,16 +74,16 @@ void Language::setLanguageName(string arg){
 
 void Language::changeLang(){
 	system("cls");
-	cout << getString("switch_lang_sharp") << endl;
-	cout << getString("switch_lang_name") << endl;
-	cout << endl;
-	cout << getString("switch_lang_all") << endl;
+	cout << getString("switch_lang_sharp") << "\n";
+	cout << getString("switch_lang_name") << "\n";
+	cout << "\n";
+	cout << getString("switch_lang_all") << "\n";
 	for (int i = 0; i < languagesNum; i++){
 		cout << languages[i] << "; ";
 	}
-	cout << endl;
-	cout << getString("switch_lang_now") << languageName << endl;
-	cout << getString("switch_lang_sm") << endl;
+	cout << "\n";
+	cout << getString("switch_lang_now") << languageName << "\n";
+	cout << getString("switch_lang_sm") << "\n";
 	string findLang;
 	cin >> findLang;
 
@@ -91,13 +91,13 @@ void Language::changeLang(){
 	for (int i = 0; i < languagesNum; i++){
 		if (findLang == languages[i]){
 			setLanguageName(languages[i]);
-			cout << getString("switch_lang_ok") << endl;
+			cout << getString("switch_lang_ok") << "\n";
 			isFind = true;
 			break;
 		}
 	}
 
-	if (!isFind) cout << getString("switch_lang_er") << endl;
+	if (!isFind) cout << getString("switch_lang_er") << "\n";
 	system("pause");
 	system("cls");
 }

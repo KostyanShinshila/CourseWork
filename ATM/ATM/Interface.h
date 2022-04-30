@@ -1,5 +1,6 @@
 #pragma once
 #include "Language.h"
+#include "Database.h"
 
 class Interface{
 private:
@@ -9,4 +10,6 @@ public:
 	Interface();
 	void zastavka(Language&l);
 	void auth(Language&l);
+	void showAboutMe(Database&bd);
+	void showHelp(Database&bd);
 };

@@ -10,10 +10,10 @@ TransferToCard::TransferToCard(){
 
 void TransferToCard::showInfo(Language&l){
 	system("cls");
-	cout << "	" << l.getString("transfer_card_hub") << endl;
-	cout << l.getString("transfer_card_message") << endl;
-	cout << endl;
-	cout << l.getString("transfer_card_recent") << endl;
+	cout << "	" << l.getString("transfer_card_hub") << "\n";
+	cout << l.getString("transfer_card_message") << "\n";
+	cout << "\n";
+	cout << l.getString("transfer_card_recent") << "\n";
 }
 
 void TransferToCard::payService(User&user, long sum){

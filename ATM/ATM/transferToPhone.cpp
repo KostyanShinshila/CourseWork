@@ -10,10 +10,10 @@ TransferToPhone::TransferToPhone(){
 }
 
 void TransferToPhone::showService(Language&Language){
-	cout << "	" << Language.getString("service_to_phone_hub") << endl;
-	cout << Language.getString("service_to_phone_message") << endl;
-	cout << Language.getString("service_to_phone_help") << endl;
-	cout << endl;
+	cout << "	" << Language.getString("service_to_phone_hub") << "\n";
+	cout << Language.getString("service_to_phone_message") << "\n";
+	cout << Language.getString("service_to_phone_help") << "\n";
+	cout << "\n";
 }
 
 void TransferToPhone::payService(User&user, long sum){

@@ -12,6 +12,7 @@ public:
 	string getPath(string path);
 	void addLogOperation(string type);
 	void readLogOperation();
+	void readTxt(string path);
 	void createFileLogs();
 	void readAvailableCards(int amount);
 	bool findCard(string desired);
