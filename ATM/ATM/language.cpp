@@ -8,7 +8,7 @@ using namespace std;
 Language::Language(){
 	languages[0] = "RU";
 	languages[1] = "EN";
-	languages[2] = "DE";
+	languages[2] = "NL";
 	languageName = languages[0];
 }
 
