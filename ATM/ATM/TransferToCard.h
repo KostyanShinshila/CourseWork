@@ -1,9 +1,10 @@
 #pragma once
 #include <iostream>
 #include "User.h"
+#include "Database.h"
 using namespace std;
 
-class TransferToCard{
+class TransferToCard: public Card{
 private:
 	string transferName;
 	int recentTrans; //  ол-во выводимых последних карт дл€ перевода

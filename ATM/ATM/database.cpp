@@ -86,6 +86,23 @@ void Database::readAvailableCards(int amount){
 	}
 }
 
+void Database::showCardsFile(){
+	string path = getPath("Cards");
+	ifstream file(path);
+	if (!file){
+		cout << "\nConfig file not found.\n" << "\n";
+		system("pause");
+		return;
+	}
+	string str;
+	int i = 1;
+	system("cls");
+	while (getline(file, str)){
+		cout << to_string(i) + ". " << str << "\n";
+		i++;
+	}
+}
+
 void Database::readTxt(string type){
 	string path = getPath(type);
 	ifstream file(path);

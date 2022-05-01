@@ -12,4 +12,5 @@ public:
 	void auth(Language&l);
 	void showAboutMe(Database&bd);
 	void showHelp(Database&bd);
+	void showSubjectArea(Database&bd);
 };

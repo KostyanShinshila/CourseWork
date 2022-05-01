@@ -9,7 +9,7 @@ protected:
 	long lim;
 
 public:
-	Money(string Currency, long Sum);
+	Money(string Currency, long Sum, long Lim);
 	Money();
 
 	void setSum(long Sum);

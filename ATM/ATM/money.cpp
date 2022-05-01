@@ -1,9 +1,9 @@
 #include "Money.h"
 
-Money::Money(string Currency, long Sum){
+Money::Money(string Currency, long Sum, long Lim){
 	currency = Currency;
 	sum = Sum;
-	lim = 75000;
+	lim = Lim;
 }
 
 Money::Money(){

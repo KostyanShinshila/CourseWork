@@ -62,6 +62,13 @@ void Interface::showHelp(Database&bd){
 	system("pause");
 }
 
+void Interface::showSubjectArea(Database&bd){
+	system("cls");
+	bd.readTxt("Subject Area");
+	cout << "\n";
+	system("pause");
+}
+
 /////////////////////////////////////////////////////////////////
 
 void Interface::alignCout(string &s, char *type){

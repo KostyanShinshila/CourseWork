@@ -26,7 +26,7 @@ public:
 	string getGender();
 	string getBirthday();
 
-	void resetAccount();
+	void resetAccount(Language&l, Database&bd);
 	void setIsPin();
 	void setIsPin(bool arg);
 	void setBirthday(string birth);

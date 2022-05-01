@@ -56,6 +56,11 @@ void titulMenu(){
 			c.showAboutMe(bd);
 			break;
 
+		case 'd': // О авторе
+			c.showSubjectArea(bd);
+			break;
+
+
 		case 's': // Руководство оператора
 			c.showHelp(bd);
 			break;
@@ -191,6 +196,14 @@ void menu(){
 		case '4':
 			user->checkPin(l);
 			toCard.showInfo(l);
+			cout << "\n";
+			cout << l.getString("transfer_card_message_help") << "\n";
+			cout << "\n";
+			system("pause");
+			system("cls");
+			cout << "	" << l.getString("transfer_card_hub") << "\n";
+			cout << "\n";
+			cout << l.getString("transfer_card_recent") << "\n";
 			toCard.showRecentTrans(bd);
 			cout << "\n";
 			cout << l.getString("transfer_card_get_card") << "\n";
@@ -203,21 +216,38 @@ void menu(){
 				cout << "> ";
 			}
 			cout << "\n";
+			system("cls");
+			cout << "	" << l.getString("transfer_card_hub") << "\n"; 
+			cout << l.getString("transfer_card_to_card") << card << "\n";
+			cout << "\n";
+			cout << l.getString("bal") << user->getBal() << " " << user->getCurr() << " | ";
+			cout << l.getString("lim") << user->getLimit() << " " << user->getCurr() << "\n";
+			cout << "\n";
 			cout << l.getString("transfer_card_sum") << "\n";
+			cout << l.getString("transfer_card_send_info") << "\n";
 			for (;;){
 				long toCardSum = 0;
 				cout << "> ";
+				cin.clear();
 				toCardSum = getInt(toCardSum);
-				if (toCardSum == -1)
+				if (toCardSum == -1){
+					cout << l.getString("pause") << "\n";
 					break;
-				if (toCardSum <= user->getBal() && toCardSum > 100){
+				}
+				if (toCardSum <= user->getBal() && toCardSum >= 100){
 					toCard.payService(*user, toCardSum);
 					cout << l.getString("transfer_card_sum_good") << "\n";
 					toCard.writeCheck(bd, card, toCardSum);	
 					cout << l.getString("pause") << "\n";
 					break;
 				}
-				cout << l.getString("transfer_card_sum_bad") << "\n";
+				if (toCardSum < 100){
+					cout << l.getString("transfer_card_sum_error") << "\n";
+				}
+				if (toCardSum > user->getBal()){
+					cout << l.getString("transfer_card_sum_bad") << "\n";
+				}
+				
 			}
 			break;
 
@@ -243,9 +273,14 @@ void menu(){
 							break;
 						cout << "> ";
 					}
+					system("cls");
+					cout << "	" << l.getString("service_pay_tax_hub") << "\n";
+					cout << "\n" << l.getString("bal") << user->getBal() << " " << user->getCurr() << " | ";
+					cout << l.getString("lim") << user->getLimit() << " " << user->getCurr() << "\n";
 					for (;;){
 						cout << "\n";
 						cout << l.getString("service_to_phone_sum") << "\n";
+						cout << l.getString("service_to_phone_sum_help") << "\n";
 						cout << "> ";
 						long getSum = 0;
 						getSum = getInt(getSum);
@@ -278,9 +313,14 @@ void menu(){
 							break;
 						cout << "> ";
 					}
+					system("cls");
+					cout << "	" << l.getString("service_pay_tax_hub") << "\n";
+					cout << "\n" << l.getString("bal") << user->getBal() << " " << user->getCurr() << " | ";
+					cout << l.getString("lim") << user->getLimit() << " " << user->getCurr() << "\n";
 					for (;;){ // ввод суммы
 						cout << "\n";
 						cout << l.getString("service_pay_tax_sum") << "\n";
+						cout << l.getString("service_pay_tax_sum_help") << "\n";
 						cout << "> ";
 						long getSum = 0;
 						getSum = getInt(getSum);
@@ -311,9 +351,14 @@ void menu(){
 							break;
 						cout << "> ";
 					}
+					system("cls");
+					cout << "	" << l.getString("service_pay_tax_hub") << "\n";
+					cout << "\n" << l.getString("bal") << user->getBal() << " " << user->getCurr() << " | ";
+					cout << l.getString("lim") << user->getLimit() << " " << user->getCurr() << "\n";
 					for (;;){
 						cout << "\n";
 						cout << l.getString("service_pay_wallet_sum") << "\n";
+						cout << l.getString("service_pay_wallet_sum_help") << "\n";
 						cout << "> ";
 						long getSum = 0;
 						getSum = getInt(getSum);
@@ -365,7 +410,8 @@ void menu(){
 				cout << "1. " << l.getString("settings_lang") << "\n";
 				cout << "2. " << l.getString("settings_clear") << "\n";
 				cout << "3. " << l.getString("settings_null") << "\n";
-				cout << "4. " << l.getString("settings_back") << "\n";
+				cout << "4. " << l.getString("settings_cards") << "\n\n";
+				cout << "5. " << l.getString("settings_back") << "\n";
 				int getInput = 0;
 				cout << "\n";
 				cout << "> ";
@@ -376,7 +422,7 @@ void menu(){
 				}
 
 				if (getInput == 2){
-					user->resetAccount();
+					user->resetAccount(l, bd);
 					cout << l.getString("settings_clear_message") << "\n";
 					system("pause");
 				}
@@ -387,7 +433,12 @@ void menu(){
 					system("pause");
 				}
 
-				if (getInput == 4)
+				if (getInput == 4){
+					bd.showCardsFile();
+					system("pause");
+				}
+
+				if (getInput == 5)
 					break;
 			}
 			cout << "\n";

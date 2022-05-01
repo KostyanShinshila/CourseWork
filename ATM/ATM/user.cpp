@@ -39,9 +39,10 @@ string User::getBirthday(){
 	return birthday;
 }
 
-void User::resetAccount(){
+void User::resetAccount(Language&l, Database&bd){
 	//this->operator!();
 	!*this;
+	bd.addLogOperation(l.getString("reset_log"));
 }
 
 void User::checkPin(Language&l){
@@ -76,6 +77,7 @@ void User::addMoneyBal(Language&l){
 	cout << l.getString("lim") << getLimit() << " " << getCurr() << "\n";
 	cout << "\n";
 	cout << l.getString("add_money_message") << "\n";
+	cout << l.getString("add_money_message_info") << "\n";
 	cout << "> ";
 	int inputSum;
 	for (;;){
@@ -92,7 +94,7 @@ void User::addMoneyBal(Language&l){
 				l.getString("add_money_blocked_error");
 			}
 			// errors 
-			if (inputSum < 100 || inputSum > 50000){ // если слишком малый перевод или слишком большой
+			if (inputSum < 100){ // если слишком малый перевод
 				cout << l.getString("add_money_blocked_odd") << "\n";
 			}
 
@@ -100,6 +102,7 @@ void User::addMoneyBal(Language&l){
 				l.getString("add_money_blocked_limit");
 			}
 			cout << l.getString("add_money_blocked_reply") << "\n";
+			cout << l.getString("add_money_message_info") << "\n";
 			cout << "> ";
 		}
 
@@ -124,6 +127,7 @@ void User::subMoneyBal(Language&l){
 	cout << l.getString("lim") << getLimit() << " " << getCurr() << "\n";
 	cout << "\n";
 	cout << l.getString("sub_money_message") << "\n";
+	cout << l.getString("sub_money_message_info") << "\n";
 	cout << "> ";
 	int inputSum;
 	for (;;){
@@ -144,6 +148,7 @@ void User::subMoneyBal(Language&l){
 				cout << l.getString("sub_money_blocked_odd") << "\n";
 			}
 			cout << l.getString("sub_money_blocked_reply") << "\n";
+			cout << l.getString("sub_money_message_info") << "\n";
 			cout << "> ";
 		}
 

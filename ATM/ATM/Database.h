@@ -14,6 +14,7 @@ public:
 	void readLogOperation();
 	void readTxt(string path);
 	void createFileLogs();
+	void showCardsFile();
 	void readAvailableCards(int amount);
 	bool findCard(string desired);
 };
